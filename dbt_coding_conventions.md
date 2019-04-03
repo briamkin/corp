@@ -22,6 +22,11 @@
 * All other models should only select from other models.
 * For more information on how we structure our projects see [this document](link to be created)
 
+## Testing
+
+- Every subdirectory should contain a `schema.yml` file, in which each model in the subdirectory is tested.
+- At a minimum, unique and foreign key constraints should be tested (if applicable).
+
 ## Naming and field conventions
 
 * Schema, table and column names should be in `snake_case`.
@@ -78,7 +83,7 @@ select * from filtered_events
 - *DO NOT OPTIMIZE FOR A SMALLER NUMBER OF LINES OF CODE. NEWLINES ARE CHEAP, BRAIN TIME IS EXPENSIVE*
 
 ### Example SQL
-Note that while this demonstrates good SQL style, it does not represent good modeling, since the `final` cte both aggregates and joins!
+Note that while this demonstrates good SQL style, it does not represent good modeling, since the `final` CTE both aggregates and joins!
 ```sql
 with my_data as (
 
@@ -185,9 +190,3 @@ models:
 
 * When using Jinja delimiters, use spaces on the inside of your delimiter, like `{{ this }}` instead of `{{this}}`
 * Use newlines to visually indicate logical blocks of Jinja
-
-## Testing
-
-- Every subdirectory should contain a `schema.yml` file, in which each model in the subdirectory is tested.
-- At minimum, unique and foreign key constraints should be tested (if applicable)
-- Any failing tests should be fixed or explained prior to requesting a review
