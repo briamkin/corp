@@ -73,7 +73,7 @@ select * from filtered_events
 - Prefer `union all` to `union` [*](http://docs.aws.amazon.com/redshift/latest/dg/c_example_unionall_query.html)
 - Avoid table aliases (especially initialisms).
 - If joining two tables, _always_ prefix your column names with the table alias.
-- Be explicit about your join (i.e. write `inner join` instead of `join`). `left joins` are normally the most useful, `right joins`
+- Be explicit about your join (i.e. write `inner join` instead of `join`). `left joins` are normally the most useful, `right joins` usually mean that you've chosen to select `from` the wrong table (and you should instead change which table you select `from` and which one you `join` to).
 
 - *DO NOT OPTIMIZE FOR A SMALLER NUMBER OF LINES OF CODE. NEWLINES ARE CHEAP, BRAIN TIME IS EXPENSIVE*
 
