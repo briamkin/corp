@@ -25,14 +25,14 @@
 ## Testing
 
 - Every subdirectory should contain a `schema.yml` file, in which each model in the subdirectory is tested.
-- At a minimum, unique and foreign key constraints should be tested (if applicable).
+- At a minimum, unique and not_null tests should be applied to the primary key of each model.
 
 ## Naming and field conventions
 
 * Schema, table and column names should be in `snake_case`.
 * Use names based on the _business_ terminology, rather than the source terminology.
 * Table names should be plurals, e.g. `accounts`.
-* Each `stg_` and `fct_` model should have a primary key.
+* Each model should have a primary key.
 * The primary key of a model should be named `<object>_id`, e.g. `account_id` – this makes it easier to use `using` for joins (see below).
 * Timestamp columns should be named `<event>_at`, e.g. `created_at`, and should be in UTC. If a different timezone is being used, this should be indicated with a suffix, e.g `created_at_pt`.
 * Booleans should be prefixed with `is_` or `has_`.
@@ -83,7 +83,6 @@ select * from filtered_events
 - *DO NOT OPTIMIZE FOR A SMALLER NUMBER OF LINES OF CODE. NEWLINES ARE CHEAP, BRAIN TIME IS EXPENSIVE*
 
 ### Example SQL
-Note that while this demonstrates good SQL style, it does not represent good modeling, since the `final` CTE both aggregates and joins!
 ```sql
 with my_data as (
 
