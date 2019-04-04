@@ -125,7 +125,7 @@ final as (
           my_data.field_2 = 'ghi'
       )
 
-    group by 1, 2, 3
+    group by 1, 2, 3, 4
     having count(*) > 1
 
 )
